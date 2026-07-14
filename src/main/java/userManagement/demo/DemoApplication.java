@@ -2,7 +2,7 @@ package userManagement.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-//tes
+//test commit
 @SpringBootApplication
 public class DemoApplication {
 
