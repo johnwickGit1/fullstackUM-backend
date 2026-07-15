@@ -14,6 +14,7 @@ public class User {
     private String password;
     private String userType;
     private String status;
+    private String currentSessionId;
 
     public User() {
 
@@ -44,6 +45,10 @@ public class User {
         this.status = status;
     }
 
+    public void setCurrentSessionId(String currentSessionId) {
+        this.currentSessionId = currentSessionId;
+    }
+
     // Getter
     public int getId() {
         return id;
@@ -66,5 +71,9 @@ public class User {
     }
     public String getStatus() {
         return status;
+    }
+
+    public String getCurrentSessionId() {
+        return this.currentSessionId;
     }
 }
