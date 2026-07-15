@@ -55,6 +55,7 @@ public class userController {
                     if(userDetails.getPassword()!=null) {
                         existingUser.setPassword(userDetails.getPassword());
                     }
+                    existingUser.setCurrentSessionId(userDetails.getCurrentSessionId());
                     return userRepository.save(existingUser);
                 })
                 .orElseThrow(() -> new RuntimeException("User not found with id " + id));
