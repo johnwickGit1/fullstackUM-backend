@@ -20,6 +20,7 @@ public class DataInitializer implements CommandLineRunner {
             User admin = new User();
             admin.setUserType("admin");
             admin.setPassword("admin123");
+            admin.setEmail("admin@gmail.com");
 
             userRepository.save(admin);
             System.out.println("➔➔➔ Default Admin Account Created: admin / admin123");
