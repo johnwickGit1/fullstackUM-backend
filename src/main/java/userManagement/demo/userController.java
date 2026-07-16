@@ -1,6 +1,7 @@
 package userManagement.demo;
 
 import org.springframework.web.bind.annotation.*;
+import java.util.UUID;
 
 import java.util.List;
 
@@ -42,7 +43,6 @@ public class userController {
 
     @PutMapping("/users/{id}")
     public User updateUser(@PathVariable Integer id, @RequestBody User userDetails) {
-        // 1. Find the existing user from the DB using the ID from the URL
         return userRepository.findById(id)
                 .map(existingUser -> {
                     // 2. Update the fields with the new data sent from Postman/Swagger
@@ -79,11 +79,13 @@ public class userController {
             throw new RuntimeException("Account is pending admin approval");
         }
         if (user.getPassword().equals(loginDetails.getPassword())) {
-            return user; // 👈 Return the whole user object (includes userType, id, name, etc.)
+            user.setCurrentSessionId(UUID.randomUUID().toString());
+            return userRepository.save(user);
         } else {
             throw new RuntimeException("Invalid email or password");
         }
     }
+
 
 
 
